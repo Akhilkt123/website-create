@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/regs.css' %}">
+    <style>
+        body{
+            background:url({% static 'images/pexels-bess-hamiti-36487.jpg' %});
+            background-size:cover;
+            }
+    </style>
+</head>
+<body>
+<h1>REGISTER PAGE</h1>
+<form action="reg" method="post">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="Enter your username"><br>
+    <input type="text" name="f_name" placeholder="Enter your FirstName"><br>
+    <input type="text" name="l_name" placeholder="Enter your LastName"><br>
+    <input type="email" name="email" placeholder="Enter your Email"><br>
+    <input type="password" name="password" placeholder="Enter your Password"><br>
+    <input type="password" name="password1" placeholder="Enter your Password"><br><br>
+    <input type="submit">
+
+
+</form>
+{% for msg in messages %}
+<h1>{{msg}}</h1>
+{% endfor %}
+</body>
+</html>
